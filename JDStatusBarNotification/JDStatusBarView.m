@@ -12,6 +12,7 @@
 @interface JDStatusBarView ()
 @property (nonatomic, strong) UILabel *textLabel;
 @property (nonatomic, strong) UIActivityIndicatorView *activityIndicatorView;
+@property (nonatomic, strong) UIView *bottomLine;
 @end
 
 @implementation JDStatusBarView
@@ -42,6 +43,15 @@
   return _activityIndicatorView;
 }
 
+- (UIView*)bottomLine;
+{
+    if (_bottomLine == nil) {
+        _bottomLine = [[UIView alloc] init];
+        _bottomLine.alpha = 0.5f;
+        [self addSubview:_bottomLine];
+    }
+    return _bottomLine;
+}
 #pragma mark setter
 
 - (void)setTextVerticalPositionAdjustment:(CGFloat)textVerticalPositionAdjustment;
@@ -71,6 +81,8 @@
     indicatorFrame.origin.y = ceil(1+(self.bounds.size.height - indicatorFrame.size.height + topLayoutMargin)/2.0);
     _activityIndicatorView.frame = indicatorFrame;
   }
+    self.bottomLine.frame = CGRectMake(0, self.bounds.size.height - 0.5, self.bounds.size.width, 0.5);
+    self.bottomLine.backgroundColor = self.textLabel.textColor;
 }
 
 - (CGSize)currentTextSize;

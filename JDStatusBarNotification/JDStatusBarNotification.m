@@ -495,6 +495,8 @@
   CGFloat topLayoutMargin = JDStatusBarRootVCLayoutMargin().top;
   if (topLayoutMargin > 0) {
     height += topLayoutMargin;
+  }else {
+      height += 45.0;
   }
 
   _topBar.frame = CGRectMake(0, yPos, width, height);
