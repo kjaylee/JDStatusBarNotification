@@ -82,7 +82,7 @@
     _activityIndicatorView.frame = indicatorFrame;
   }
     self.bottomLine.frame = CGRectMake(0, self.bounds.size.height - 0.5, self.bounds.size.width, 0.5);
-    self.bottomLine.backgroundColor = self.textLabel.textColor;
+    self.bottomLine.backgroundColor = [UIColor colorWithRed:0.87 green:0.87 blue:0.87 alpha:1.00];
 }
 
 - (CGSize)currentTextSize;
